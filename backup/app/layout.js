@@ -8,7 +8,7 @@ const Love = Love_Ya_Like_A_Sister({ subsets: ['latin'], weight:"400" })
 
 export const metadata = {
   title: 'Infinity',
-  description: 'The next big thing',
+  description: 'Just another simple site',
 }
 
 export default function RootLayout({ children }) {

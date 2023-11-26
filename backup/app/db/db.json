@@ -1,0 +1,68 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "Fullname": "Clarkson Awomu",
+      "Email": "clarksonlawson1@gmail.com",
+      "country": "Nigeria",
+      "Phone": "08074251316",
+      "password": "121212"
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "name": "Clarkson Awomu",
+      "email": "clarksonlawson1@gmail.com",
+      "password": "egerhegdf",
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "name": "Clarkson Awomu",
+      "phone": "4647687878",
+      "country": "United Kingdom",
+      "email": "clarksonlawson1@gmail.com",
+      "password": "asdgwsrd",
+      "id": 7
+    },
+    {
+      "name": "Jamie Gallagher",
+      "phone": "121212",
+      "country": "Australia",
+      "email": "clarksonlawson1@gmail.com",
+      "password": "sdvdlnlb",
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "name": "clarksonlawson1@gmail.com",
+      "email": "clarksonlawson1@gmail.com",
+      "country": "United Kingdom",
+      "phone": "Clarkson Awomu",
+      "password": "pm",
+      "id": 10
+    },
+    {
+      "id": 11
+    },
+    {
+      "name": "Pink Lady",
+      "email": "eegg@g.com",
+      "country": "",
+      "phone": "32349rh8",
+      "password": "xdovsndon",
+      "id": 12
+    }
+  ]
+}
