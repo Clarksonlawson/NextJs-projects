@@ -1,4 +1,3 @@
-import Image from "next/image"
 import RenderForm from "../ui/create/CreateForm"
 
 export default function RegistrationPage(){

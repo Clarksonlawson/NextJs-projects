@@ -2,11 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-body{
+body {
   background-color: white;
 }
+
 p{
   color:black;
   font-weight: 600;

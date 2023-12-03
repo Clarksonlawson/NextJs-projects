@@ -10,13 +10,7 @@ export default function Home() {
       <div className="container col-xl-10 col-xxl-8 px-4 py-5">
         <div className="row align-items-center g-lg-5 py-5">
           <div className="col-lg-7 text-center text-lg-start items-center">
-        <Image src="/cover.png"
-            alt="Love"
-            width={400}
-            height={400}
-            priority
-          
-            />
+       
             <h1 className="display-4 fw-bold lh-1 text-body-emphasis mb-3">Welcome to Infinity</h1>
             <p className="col-lg-10 fs-4">Created By Clarkson Awomu</p>
            

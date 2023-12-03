@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function Header() {
     return (<header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
     <div className="col-md-3 mb-2 mb-md-0">
-      <Link href={"/"}><Image src={"/cover.png"} alt="Logo" width={140} height={100} priority /></Link>
+      <Link href={"/"}><Image src={"/cover.png"} alt="Logo" width={140} height={100} className="dark:invert" priority /></Link>
     </div>
 
     <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
