@@ -1,6 +1,8 @@
+
+
 export default function Login(){
-    return (<main className="justify-center md:flex md:justify-center mb-12 ">
-        <form className="p-4 p-md-5 border rounded-3 bg-body-tertiary ">
+    return (<main className="justify-center md:flex md:justify-center mb-12">
+        <form className="p-4 p-md-5 border rounded-3 bg-body-tertiary">
               <div className="form-floating mb-3">
                 <input type="email" className="form-control" id="floatingInput" placeholder="name@example.com" />
                 <label htmlFor="floatingInput">Email address</label>

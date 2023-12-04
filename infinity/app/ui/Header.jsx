@@ -1,20 +1,33 @@
+import { ModeToggle } from "@/components/toggle";
 import Image from "next/image";
 import Link from "next/link";
+// import {
+//   NavigationMenu,
+//   NavigationMenuContent,
+//   NavigationMenuIndicator,
+//   NavigationMenuItem,
+//   NavigationMenuLink,
+//   NavigationMenuList,
+//   NavigationMenuTrigger,
+//   NavigationMenuViewport,
+// } from "@/components/ui/navigation-menu"
 
 export default function Header() {
-    return (<header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-    <div className="col-md-3 mb-2 mb-md-0">
-      <Link href={"/"}><Image src={"/cover.png"} alt="Logo" width={140} height={100} className="dark:invert" priority /></Link>
+    return (<nav className="bg-gradient-to-r p-4">
+      
+      
+    <div className="container mx-auto flex items-center justify-between">
+      
+    
+      <div className=" font-bold text-lg"><Link href={'/'}><Image src={'/cover.png'} width={100} height={100} priority className="dark:invert" /></Link></div>
+      
+      <div className="space-x-4">
+      <ModeToggle />
+        <Link href="/" className=" hover:text-gray-300">Home</Link>
+        <Link href="/users" className=" hover:text-gray-300">Dashboard</Link>
+        <Link href="/register" className=" hover:text-gray-300">Sign up</Link>
+        <Link href="/login" className=" hover:text-gray-300">Login</Link>
+      </div>
     </div>
-
-    <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-      <li><Link href="/" className="nav-link px-2 link-secondary">Home</Link></li>
-      <li><Link href="/users" className="nav-link px-2">Registered Users</Link></li>
-    </ul>
-
-    <div className="col-md-3 text-end">
-      <Link href="/login" className="btn btn-outline-success me-2">Login</Link>
-      <Link  className="btn btn-danger" href="/register">Sign-up</Link>
-    </div>
-</header>)
+  </nav>)
 }

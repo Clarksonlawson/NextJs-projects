@@ -1,9 +1,10 @@
 import RenderForm from "../ui/create/CreateForm"
+import { ProfileForm } from "../ui/create/form"
 
 export default function RegistrationPage(){
     return (
-    <main className="form-signin justify-center md:flex md:justify-center mb-12">
-    <RenderForm />
+    <main className="min-h-screen flex items-center justify-center mb-12">
+    <ProfileForm />
   </main>
   )
 }

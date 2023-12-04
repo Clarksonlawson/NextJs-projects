@@ -3,6 +3,9 @@
 import { revalidatePath } from "next/cache"
 import prisma from "@/app/lib/prisma";
 
+
+
+
 export default async function createuser(state, formData){
     console.log("preparing  Data...")
    
@@ -20,6 +23,7 @@ export default async function createuser(state, formData){
         const user = await prisma.users.create({
             data,
         })
+        revalidatePath('/')
         return {message: `Account registered successfully`}
         
     }catch(error){
