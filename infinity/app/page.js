@@ -1,30 +1,97 @@
 "use client"
-import Image from 'next/image'
-import { Suspense } from 'react'
-import Loading from './ui/loading'
-import RenderForm from './ui/create/CreateForm'
-import { ModeToggle } from '@/components/toggle'
-import { Form } from '@/components/ui/form'
-import { ProfileForm } from './ui/create/form'
+import { siteConfig } from "@/config/site"
+import { Button, buttonVariants } from "@/components/ui/button"
+import Link from "next/link"
+import Image from "next/image"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+
 // import { ModeToggle } from '@/components/toggle'
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-gray-100 dark:bg-gray-800 text-black dark:text-white">
-    <div className="container col-xl-10 col-xxl-8 px-4 py-5 items-center" >
-      <div className="row align-items-center g-lg-5 py-5">
-        <div className="col-lg-7 text-center text-lg-start items-center">
-          <h1 className="display-4 fw-bold lh-1 text-body-emphasis mb-3">Welcome to Infinity</h1>
-          <p className="col-lg-10 fs-4">Created By Clarkson Awomu</p>
+    <>
+     <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
+       <div className="flex max-w-[980px] flex-col items-start gap-2">
+         <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
+           Welcome to infinity <br className="hidden sm:inline" />
+           Just another simple App 
+         </h1>
+         <p className="max-w-[700px] text-lg text-muted-foreground">
+          The Best Administrative dashboard yet. Built using latest Technologies, we offer scalable solutions on basic CRUD operations.
+ 
+         </p>
+       </div>
+       <div className="flex gap-4">
+         <Link
+           href={'/register'}
+           
+           rel="noreferrer"
+           className={buttonVariants()}
+         >
+           Get Started
+         </Link>
+         <Link
+           
+           rel="noreferrer"
+           href={'/login'}
+           className={buttonVariants({ variant: "outline" })}
+         >
+           Login
+         </Link>
+       </div>
+       <section className="hidden md:block">
+       <div className="overflow-hidden rounded-lg border bg-background shadow" style={{ display: 'flex' }}>
+          <Card style={{ flex: '1', marginRight: '16px' }}>
+            <CardHeader>
+              <CardTitle>Security</CardTitle>
+              <CardDescription>Built using modern technologies with a secure database connection, you can be rest assured
+                of security
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>Real-time data, charts, and analytics.</p>
+            </CardContent>
+            <CardFooter>
+            <Button>Explore</Button>
+            </CardFooter>
+          </Card>
+
+          <Card style={{ flex: '1' }}>
+            <CardHeader>
+              <CardTitle>User Management</CardTitle>
+              <CardDescription>Manage users and permissions.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>Add, edit, and delete user accounts.</p>
+            </CardContent>
+            <CardFooter>
+              <Button>Explore</Button>
+            </CardFooter>
+          </Card>
+          <Card style={{ flex: '1' }}>
+            <CardHeader>
+              <CardTitle>Slick GUI</CardTitle>
+              <CardDescription>Fast smooth interface to ensure you have the best experience using it.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p>Read more...</p>
+            </CardContent>
+            <CardFooter>
+              <Button>Explore</Button>
+            </CardFooter>
+          </Card>
         </div>
-        <div className="max-w-md w-full p-8 border border-gray shadow-md rounded-md flex bg-white dark:bg-gray-900">
-          <div className="space-y-8">
-            
-            <ProfileForm />
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-  
-  )
+
+
+   </section>
+     </section>
+    
+    </>
+    )
 }
