@@ -1,4 +1,4 @@
-"use client"
+
 import { siteConfig } from "@/config/site"
 import { Button, buttonVariants } from "@/components/ui/button"
 import Link from "next/link"
@@ -11,9 +11,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
+import { auth } from "@clerk/nextjs"
+import { redirect } from "next/navigation"
 
 // import { ModeToggle } from '@/components/toggle'
 export default function Home() {
+  const {userId} =auth();
+  if(userId){
+    redirect("/users")
+  }
   return (
     <>
      <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">

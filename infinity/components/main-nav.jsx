@@ -7,6 +7,7 @@ import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { Icons } from "./Icons"
 import { useUser } from "@clerk/nextjs"
+import { UserButton } from "@clerk/clerk-react"
 
 export function MainNav({ items }) {
   const {user, isLoaded} = useUser();
@@ -35,8 +36,9 @@ export function MainNav({ items }) {
               
           )}
           {
-            isLoaded && user && <Link
-           
+            isLoaded && user &&
+              <Link
+            
             href={"/users"}
             className={cn(
               "flex items-center text-sm font-medium text-muted-foreground",
@@ -45,6 +47,8 @@ export function MainNav({ items }) {
           >
             Dashboard
           </Link>
+         
+          
           }
         </nav>
       ) : null}

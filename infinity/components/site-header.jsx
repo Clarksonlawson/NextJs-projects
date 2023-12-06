@@ -1,3 +1,4 @@
+'use client'
 import Link from "next/link"
 
 import { siteConfig } from "@/config/site"
@@ -5,7 +6,10 @@ import { Button, buttonVariants } from "./ui/button"
 import { Icons } from "./Icons"
 import { MainNav } from "./main-nav"
 import { ThemeToggle } from "./theme-toggle"
+import { useUser } from "@clerk/nextjs"
+import { UserButton } from "@clerk/nextjs"
 export function SiteHeader() {
+  const {user, isLoaded} = useUser();
   return (
     <header className="bg-background sticky top-0 z-40 w-full border-b">
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
@@ -29,7 +33,12 @@ export function SiteHeader() {
             </Link>
                
             <ThemeToggle />
-          
+            {
+                isLoaded && user &&
+            <UserButton afterSignOutUrl ='/'/>
+                
+              
+              }
           </nav>
         </div>
       </div>
