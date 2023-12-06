@@ -1,3 +1,4 @@
+'use client'
 import * as React from "react"
 import Link from "next/link"
 
@@ -5,8 +6,10 @@ import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { Icons } from "./Icons"
+import { useUser } from "@clerk/nextjs"
 
 export function MainNav({ items }) {
+  const {user, isLoaded} = useUser();
   return (
     <div className="flex gap-6 md:gap-10">
       <Link href="/" className="flex items-center space-x-2">
@@ -29,7 +32,20 @@ export function MainNav({ items }) {
                   {item.title}
                 </Link>
               )
+              
           )}
+          {
+            isLoaded && user && <Link
+           
+            href={"/users"}
+            className={cn(
+              "flex items-center text-sm font-medium text-muted-foreground",
+              
+            )}
+          >
+            Dashboard
+          </Link>
+          }
         </nav>
       ) : null}
     </div>

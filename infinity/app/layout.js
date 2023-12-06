@@ -10,6 +10,8 @@ import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from '@/components/theme-setter'
 import { Icons } from '@/components/Icons'
+import { ClerkProvider } from '@clerk/nextjs'
+
 export const metadata = {
   title: {
     default: siteConfig.name,
@@ -30,6 +32,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <>
+    <ClerkProvider>
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
@@ -47,6 +50,7 @@ export default function RootLayout({ children }) {
         </ThemeProvider>
       </body>
     </html>
+    </ClerkProvider>
   </>
   )
 }

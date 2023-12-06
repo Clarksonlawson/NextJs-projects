@@ -55,7 +55,7 @@ export function SubmitButton(){
     {pending && (
       <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
     )}
-    Sign up
+    Login
   </Button>
 }
 
@@ -165,6 +165,7 @@ export function DemoCreateAccount() {
       <CardFooter>
        
     <SubmitButton />
+    <hr className="my-4" />
     <p className={state?.message === 'Account registered successfully' ? 'text-green-500' : 'text-red-500'}>
         {state?.message}
         </p>

@@ -2,6 +2,7 @@
 'use server'
 import { revalidatePath } from "next/cache"
 import prisma from "@/app/lib/prisma";
+import { hashPassword } from "./crypt";
 
 
 export  async function loginuser(state, formData){
@@ -9,18 +10,35 @@ export  async function loginuser(state, formData){
    
    
     const email = formData.get("email");
-    const password = formData.get("password");
+    const pass = hashPassword(formData.get("password"));
     const Data = {
-         email, password
+         email, pass
+    }
+    if(!email || !pass){
+        return {message: `One or more field not supplied`}
     }
     const data = Data
     console.log(Data)
     try{
-        const user = await prisma.users.create({
-            data,
-        })
-        revalidatePath('/')
-        return {message: `Account registered successfully`}
+        const user = await prisma.users.findUnique({
+            where: { email: email },
+            select: {
+                id: true,
+                fullname: true,
+                email: true,
+                password: true,
+                country: true,
+                phone: true
+            }
+        });
+        if(user && user.password === pass){
+
+            return exclude(user, ["password"])
+            
+        }else{
+            return {message: `Invalid username or password`}
+        }
+       
         
     }catch(error){
         console.error(error);
@@ -33,6 +51,12 @@ export  async function loginuser(state, formData){
     }
 
 }
+function exclude(user, keys) {
+    for (let key of keys) {
+      delete user[key];
+    }
+    return user;
+  }
 
 export  async function createuser(state, formData){
     console.log("preparing  Data...")
@@ -41,7 +65,7 @@ export  async function createuser(state, formData){
     const email = formData.get("email");
     const phone = formData.get("phone");
     const country = formData.get("country");
-    const password = formData.get("password");
+    const password = hashPassword(formData.get("password"));
     const Data = {
         fullname, email, phone, country, password
     }

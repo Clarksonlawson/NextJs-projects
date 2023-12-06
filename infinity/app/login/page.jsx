@@ -5,7 +5,7 @@ import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 import { ProfileForm } from "../ui/create/form"
-import { UserAuthForm } from "../ui/create/ff"
+import AuthForm, { UserAuthForm } from "../ui/create/ff"
 import { DemoCreateAccount } from "../ui/create/loginform"
 
 export const metadata = {
@@ -95,6 +95,7 @@ export default function LoginPage() {
               </p>
             </div>
             <DemoCreateAccount />
+            {/* <AuthForm /> */}
             <p className="px-8 text-center text-sm text-muted-foreground">
               By clicking continue, you agree to our{" "}
               <Link

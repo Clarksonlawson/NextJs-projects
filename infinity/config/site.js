@@ -15,10 +15,6 @@ export const siteConfig = {
       title: "Pricing",
       href: "/pricing",
     },
-    {
-      title: "Contact",
-      href: "/contact",
-    },
   ],
   links: {
     twitter: "https://twitter.com/clarksonlawson",
