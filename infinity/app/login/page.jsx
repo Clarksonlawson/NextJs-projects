@@ -23,13 +23,13 @@ export default function LoginPage() {
          
         </h1>
         <p className="max-w-[700px] text-lg text-muted-foreground">
-         It's Really easy! Just follow the simple steps!
+         It&apos;s Really easy! Just follow the simple steps!
 
         </p>
       </div>
     
       <section className="hidden md:block">
-      <div className="overflow-hidden rounded-lg border bg-background shadow" style={{ display: 'flex' }}>
+      <div className="overflow-hidden rounded-lg border bg-background shadow" style={{ display: "flex" }}>
       
       <>
       <div className="md:hidden">
