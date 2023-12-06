@@ -35,7 +35,7 @@ export default function Home() {
        </div>
        <div className="flex gap-4">
          <Link
-           href={'/register'}
+           href={'/sign-up'}
            
            rel="noreferrer"
            className={buttonVariants()}
@@ -45,7 +45,7 @@ export default function Home() {
          <Link
            
            rel="noreferrer"
-           href={'/login'}
+           href={'/sign-in'}
            className={buttonVariants({ variant: "outline" })}
          >
            Login

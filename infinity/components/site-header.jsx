@@ -35,7 +35,7 @@ export function SiteHeader() {
             <ThemeToggle />
             {
                 isLoaded && user &&
-            <UserButton afterSignOutUrl ='/'/>
+            <UserButton />
                 
               
               }

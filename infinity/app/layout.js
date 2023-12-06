@@ -2,7 +2,8 @@ import { Inter, Averia_Libre } from 'next/font/google'
 import { Metadata } from 'next'
 import "@/styles/globals.css"
 import { buttonVariants } from '@/components/ui/button'
-
+import { dark, neobrutalism } from '@clerk/themes';
+ 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
@@ -32,7 +33,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <>
-    <ClerkProvider>
+    <ClerkProvider
+    >
     <html lang="en" suppressHydrationWarning>
       <head />
       <body
