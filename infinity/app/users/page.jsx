@@ -3,14 +3,19 @@ import prisma from "../lib/prisma"
 import { columns } from "./columns";
 import { DataTable } from "./DataTable";
 import { UserNav } from "@/components/ui/userNav";
+import { auth } from "@clerk/nextjs";
+import { getXataClient } from "../xata";
 
 export async function getUsers(){
-    const users = await prisma.users.findMany();
+    const xataClient = getXataClient();
+     
+     const users = await xataClient.db.users.getMany();
     return users;
 }
 
 
 export default async function Users(){
+  const {userId} = auth();
     const users = await getUsers();
 
     return(  <>

@@ -3,11 +3,13 @@
 import { revalidatePath } from "next/cache"
 import prisma from "@/app/lib/prisma";
 import { hashPassword } from "./crypt";
+import { getXataClient } from "@/app/xata";
 
 
 export  async function loginuser(state, formData){
     console.log("preparing  Data...")
-   
+   const xataClient = getXataClient();
+
    
     const email = formData.get("email");
     const pass = hashPassword(formData.get("password"));
@@ -60,7 +62,7 @@ function exclude(user, keys) {
 
 export  async function createuser(state, formData){
     console.log("preparing  Data...")
-   
+   const xataClient = getXataClient();
     const fullname = formData.get("fullname");
     const email = formData.get("email");
     const phone = formData.get("phone");
@@ -72,8 +74,9 @@ export  async function createuser(state, formData){
     const data = Data
     console.log(Data)
     try{
-        const user = await prisma.users.create({
-            data,
+
+        const user = await xataClient.db.users.create({
+            fullname, email, phone, country, password
         })
         revalidatePath('/')
         return {message: `Account registered successfully`}
