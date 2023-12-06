@@ -1,0 +1,7 @@
+{
+  "databaseURL": "https://Clarksonlawson-s-workspace-50ekbv.us-east-1.xata.sh/db/infinity",
+  "codegen": {
+    "output": "app/xata.js",
+    "moduleType": "esm"
+  }
+}

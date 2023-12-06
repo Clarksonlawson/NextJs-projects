@@ -1,0 +1,16 @@
+{
+  "id": "mig_clo9u6gsei6tntb7pf00",
+  "parentID": "mig_clo9u2gumj7tuupuk3h0",
+  "checksum": "1:5334f57e1683085640f2c2b5201c1eaaa02f332ddf7e75d688ea332574760448",
+  "operations": [
+    {
+      "addColumn": {
+        "column": {
+          "name": "country",
+          "type": "string"
+        },
+        "table": "users"
+      }
+    }
+  ]
+}
