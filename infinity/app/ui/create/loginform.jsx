@@ -29,8 +29,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import createuser from "./actions";
-import { useFormState } from 'react-dom'
-import { useFormStatus } from 'react-dom'
+
+import { useFormState, useFormStatus } from 'react-dom'
 import { Icons } from "@/components/Icons";
 import {
     AlertDialog,
@@ -93,11 +93,15 @@ export function DemoCreateAccount() {
        
        
         <form action={formAction} >
-        <Card>
+        <Card style={{
+        boxShadow: '0 8px 12px -4px rgba(0, 0, 0, 0.2), 0 6px 16px 0 rgba(0, 0, 0, 0.14), 0 2px 6px 0 rgba(0, 0, 0, 0.12)',
+        backgroundColor: 'var(--background-color)', // Assuming you use a CSS variable for background color
+       
+      }}>
       <CardHeader className="space-y-1">
-        <CardTitle className="text-2xl">Login</CardTitle>
+        <CardTitle className="text-2xl">Sign in</CardTitle>
         <CardDescription>
-          Proceed
+          Please choose your authentication method
         </CardDescription>
       </CardHeader>
       <CardContent className="grid gap-4">

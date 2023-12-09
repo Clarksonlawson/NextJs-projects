@@ -11,15 +11,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { auth } from "@clerk/nextjs"
+// import { auth } from "@clerk/nextjs"
 import { redirect } from "next/navigation"
 
 // import { ModeToggle } from '@/components/toggle'
 export default function Home() {
-  const {userId} =auth();
-  if(userId){
-    redirect("/users")
-  }
+  // const {userId} =auth();
+  // if(userId){
+  //   redirect("/users")
+  // }
   return (
     <>
      <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
@@ -35,7 +35,7 @@ export default function Home() {
        </div>
        <div className="flex gap-4">
          <Link
-           href={'/sign-up'}
+           href={'/register'}
            
            rel="noreferrer"
            className={buttonVariants()}
@@ -45,7 +45,7 @@ export default function Home() {
          <Link
            
            rel="noreferrer"
-           href={'/sign-in'}
+           href={'/login'}
            className={buttonVariants({ variant: "outline" })}
          >
            Login

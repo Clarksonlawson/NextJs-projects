@@ -3,7 +3,7 @@ import prisma from "../lib/prisma"
 import { columns } from "./columns";
 import { DataTable } from "./DataTable";
 import { UserNav } from "@/components/ui/userNav";
-import { auth } from "@clerk/nextjs";
+
 import { getXataClient } from "../xata";
 
 export async function getUsers(){
@@ -15,7 +15,7 @@ export async function getUsers(){
 
 
 export default async function Users(){
-  const {userId} = auth();
+  // const {userId} = auth();
     const users = await getUsers();
 
     return(  <>
@@ -43,9 +43,9 @@ export default async function Users(){
               Here&apos;s a list of your tasks for this month!
             </p>
           </div>
-          <div className="flex items-center space-x-2">
+          {/* <div className="flex items-center space-x-2">
             <UserNav name="CC" fullname="Clarkson Awomu"/>
-          </div>
+          </div> */}
         </div>
         <DataTable data={users} columns={columns} />
       </div>

@@ -4,52 +4,31 @@ import { revalidatePath } from "next/cache"
 import prisma from "@/app/lib/prisma";
 import { hashPassword } from "./crypt";
 import { getXataClient } from "@/app/xata";
-
+import { signIn } from '@/auth'
+import { AuthError } from "next-auth";
 
 export  async function loginuser(state, formData){
     console.log("preparing  Data...")
-   const xataClient = getXataClient();
-
-   
     const email = formData.get("email");
-    const pass = hashPassword(formData.get("password"));
-    const Data = {
-         email, pass
-    }
+    const pass = formData.get("password");
+   
     if(!email || !pass){
         return {message: `One or more field not supplied`}
     }
-    const data = Data
-    console.log(Data)
     try{
-        const user = await prisma.users.findUnique({
-            where: { email: email },
-            select: {
-                id: true,
-                fullname: true,
-                email: true,
-                password: true,
-                country: true,
-                phone: true
-            }
-        });
-        if(user && user.password === pass){
+        const user = await signIn('credentials', formData);
 
-            return exclude(user, ["password"])
-            
-        }else{
-            return {message: `Invalid username or password`}
-        }
-       
-        
     }catch(error){
         console.error(error);
-
-        if(error?.meta?.target == "email"){
-
-            return {message: 'Email address already exists!'}
+        if(error instanceof AuthError){
+            switch (error.type) {
+                case 'CredentialsSignin':
+                    return {message: 'Invalid credentials'}
+                  default:
+                    return {message: 'Something went wrong'}
+            }
         }
-        return {message: error?.message}
+        
     }
 
 }

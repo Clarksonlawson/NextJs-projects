@@ -5,17 +5,17 @@ import Link from "next/link"
 
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
-import { SignIn } from "@clerk/nextjs"
-import { dark } from "@clerk/themes";
+// import { SignIn } from "@clerk/nextjs"
+// import { dark } from "@clerk/themes";
 // import { ProfileForm } from "../ui/create/form"
 // import AuthForm, { UserAuthForm } from "../ui/create/ff"
 // import { DemoCreateAccount } from "../ui/create/loginform"
 
 import { useTheme } from "next-themes";
-// export const metadata = {
-//   title: "Sign in ",
-//   description: "Authentication forms built using the components.",
-// }
+export const metadata = {
+  title: "Sign in ",
+  description: "Authentication forms built using the components.",
+}
 
 export default function LoginPage() {
     const {theme} = useTheme();
@@ -99,12 +99,8 @@ export default function LoginPage() {
                 Enter your email below to continue
               </p>
             </div>
-            <SignIn 
-             appearance={{
-                baseTheme: theme === "dark" ? dark : undefined,
-              }}
-            />
-            {/* <AuthForm /> */}
+          
+            <AuthForm />
             <p className="px-8 text-center text-sm text-muted-foreground">
               By clicking continue, you agree to our{" "}
               <Link
